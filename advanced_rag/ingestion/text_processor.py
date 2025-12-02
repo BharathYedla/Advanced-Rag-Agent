@@ -127,10 +127,10 @@ class TextProcessor:
                 chunks.append(chunk)
             
             # Move start position with overlap
+            # Prevent infinite loop: ensure we move forward even if overlap >= chunk_size
             start = end - self.chunk_overlap
-            
-            # Prevent infinite loop if chunk_overlap >= chunk_size
             if start <= end - self.chunk_size:
+                # If overlap would cause us to not move forward, skip the overlap
                 start = end
         
         return chunks

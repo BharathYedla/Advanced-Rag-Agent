@@ -75,7 +75,7 @@ def test_embeddings():
     emb1 = generator.generate_embedding("hello world")
     emb2 = generator.generate_embedding("hello world")
     similarity = generator.cosine_similarity(emb1, emb2)
-    assert 0.99 <= similarity <= 1.01  # Should be almost identical
+    assert 0.99 <= similarity <= 1.0  # Should be almost 1.0 (identical)
     
     print("✓ EmbeddingGenerator tests passed")
 

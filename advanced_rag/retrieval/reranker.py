@@ -115,6 +115,9 @@ class Reranker:
         
         def length_score(result: RetrievalResult) -> float:
             length = len(result.text)
+            # Avoid division by zero
+            if optimal_length == 0:
+                return result.score
             length_penalty = abs(length - optimal_length) / optimal_length
             # Combine original score with length preference
             return result.score * (1.0 - 0.3 * length_penalty)
@@ -142,9 +145,6 @@ class Reranker:
         
         intersection = len(words1 & words2)
         union = len(words1 | words2)
-        
-        if union == 0:
-            return 1.0
         
         jaccard_similarity = intersection / union
         return 1.0 - jaccard_similarity
