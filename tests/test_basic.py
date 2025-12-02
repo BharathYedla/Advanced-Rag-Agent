@@ -39,7 +39,9 @@ def test_text_processor():
     """Test text processing and chunking."""
     print("Testing TextProcessor...")
     
-    processor = TextProcessor(chunk_size=50, chunk_overlap=10, min_chunk_size=10)
+    chunk_size = 50
+    chunk_overlap = 10
+    processor = TextProcessor(chunk_size=chunk_size, chunk_overlap=chunk_overlap, min_chunk_size=10)
     
     # Test preprocessing
     text = "This  is   a   test.   Multiple   spaces."
@@ -50,7 +52,8 @@ def test_text_processor():
     long_text = "This is a test sentence. " * 50  # Make text long enough
     chunks = processor.chunk_text(long_text, method="fixed")
     assert len(chunks) > 0
-    assert all(len(chunk.text) <= 60 for chunk in chunks)  # chunk_size + margin
+    max_expected_length = chunk_size + chunk_overlap
+    assert all(len(chunk.text) <= max_expected_length for chunk in chunks)
     
     print("✓ TextProcessor tests passed")
 
