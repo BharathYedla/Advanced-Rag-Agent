@@ -1,0 +1,13 @@
+faiss-cpu
+numpy
+elasticsearch
+transformers
+sentence-transformers
+chromadb
+huggingface-hub
+langchain-groq
+langchain-elasticsearch
+torch
+ipykernel
+langchain
+langchain-community
