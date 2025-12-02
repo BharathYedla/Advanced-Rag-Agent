@@ -1,0 +1,6 @@
+"""Indexing module for creating and managing vector stores."""
+
+from .vector_store import VectorStore
+from .embeddings import EmbeddingGenerator
+
+__all__ = ["VectorStore", "EmbeddingGenerator"]
