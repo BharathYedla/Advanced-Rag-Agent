@@ -55,11 +55,3 @@ AI models can only read so much text at once.
 - Python 3.10+
 - See `requirements.txt` for the full list of libraries.
 
-
-
-##Advanced RAG Agent Concept
-
-1. Hierarhical Indexing
-(image.png)
-In a hierarchical index, you create summaries at each hierarchical level (which can be considered abstracts). At the first level, we have summaries that highlight only the key points in large document segments. In the lower levels, the granularity will increase, and these abstracts will be closer and closer to only the relevant section of data. Next, we will conduct the embedding of these abstracts. At inference time, we will calculate the similarity with these summary embeddings. 
-
